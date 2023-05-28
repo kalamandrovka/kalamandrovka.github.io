@@ -1,0 +1,97 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tutor.ai - Exam Preparation Made Easy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/tasks.css' %}">   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Montserrat:wght@500&display=swap"
+        rel="stylesheet">
+    <link 
+      rel="shortcut icon"
+      href="photos/logo.svg"
+      type="image/x-icon"
+    >
+    
+  </head>
+  
+<body>
+    <div class="sag">
+        <div class="tasks">
+            <ul>
+                <li>Task 1 <br>Description: Ders etmek <br><i class="delete-icon" onclick="deleteListItem(this)">&#128465;</i></li>
+                <li>Task 2 <br>Description: Yazi yazmaq<br><i class="delete-icon" onclick="deleteListItem(this)">&#128465;</i></li>
+                <li>Task 3 <br>Description: Oxumaq<br><i class="delete-icon" onclick="deleteListItem(this)">&#128465;</i></li>
+            </ul>
+        </div>
+    </div>
+    <nav class="top-nav">
+      <div class="fixed-menu">
+          <h2 class="logo">LOGO</h2>
+          <div class="icons">
+          <a href="{% url 'users-home' %}" class="dashboard-icon">
+            <i class="fas fa-chart-bar" style="font-size: 13px;"> Dashboard</i> 
+          </a>
+          <a href="{% url 'users-profile' %}" class="profile-icon">
+            <i class="fas fa-user" style="font-size: 15px;"> Profil</i>  
+          </a>
+          <div class="menu-items">
+            <ul
+              style= "padding-top:20px;
+              margin-top: 10px;
+              justify-content: space-around;";>
+              <Li>
+                <a href="dersler.html">Mövzular</a>
+              </Li>
+              <Li>
+                <a href="dersler.html">Chatbot</a>
+              </Li>
+              <li>
+                <a href="dersler.html">Kitabxana</a>
+              </li>
+              <Li>
+                <a href="dersler.html">Əlaqə</a>
+              </Li>
+              <Li>
+                <a href="dersler.html">FAQ</a>
+              </Li>
+            </ul>
+            </div>
+          </div>
+        <button class="menu-toggle" type="button" aria-label="toggle menu"></button>
+        <ul class="socials">
+          <li>
+            <a href="">Facebook</a>
+          </li>
+          <li>
+            <a href="">Twitter</a>
+          </li>
+          <li>
+            <a href="">Instagram</a>
+          </li>
+          <li>
+            <div class="logout">
+              <a href="{% url 'logout' %}" class="logout"><b>Çıxış</b></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+<script>
+    function deleteListItem(item) {
+    var li = item.parentElement;
+    var ul = li.parentElement;
+    ul.removeChild(li);
+    }
+</script>
+    <body>
+</html>
+ {%endblock%}
