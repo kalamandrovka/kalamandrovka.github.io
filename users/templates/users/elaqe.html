@@ -1,0 +1,235 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dərslər</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'users/elaqe.css' %}">
+</head>
+<body>
+  {%if user.is_authenticated%}
+  <div class="container">
+    <div class="row">
+      <h1>əlaqə</h1>
+    </div>
+    <div class="row">
+      <h4 style="text-align:center">Sizdən şikayət və təkliflərinizi eşitmək istərdik!</h4>
+    </div>
+    <div class="row input-container">
+      <div class="col-xs-12">
+        <div class="styled-input wide">
+          <input id="name-input" type="text" required />
+          <label>Ad</label>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="styled-input">
+          <input id="email-input" type="email" required />
+          <label>Email</label>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="styled-input" style="float:right;">
+          <input id="phone-input" type="text" required />
+          <label>Telefon</label>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="styled-input wide">
+          <textarea id="message-input" required></textarea>
+          <label>Mesaj</label>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <a id="submit-link" href="{% url 'success' %}">
+          <div id="submit-btn" class="btn-lrg submit-btn">Göndər</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+    <nav class="top-nav">
+        <div class="fixed-menu">
+          <a href="{%url 'users-home'%}">
+            <img src="{% static 'users/logo.png' %}" style="width:100%; height: 100%;"></img>
+          </a>
+            <div class="icons">
+            <a href="{% url 'users-home' %}" class="dashboard-icon">
+              <i class="fas fa-chart-bar" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Dashboard</b> </i> 
+            </a>
+            <a href="{% url 'users-profile' %}" class="profile-icon">
+              <i class="fas fa-user" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Profil</b> </i>  
+            </a>
+            <div class="menu-items">
+              <ul
+                style= "padding-top:20px;
+                margin-top: 10px;
+                justify-content: space-around;";>
+                <Li>
+                  <a href="{%url 'ders'%}">Dərslər</a>
+                </Li>
+                <Li>
+                  <a href="https://t.me/muellim_bot">Chatbot (telegram)</a>
+                </Li>
+                <!-- <li>
+                  <a href="{%url 'kitabxana'%}">Kitabxana</a>
+                </li> -->
+                <li>
+                  <a href="{%url 'tasks'%}">Tapşırıqlar</a>
+                </li>
+                <Li>
+                  <a href="{%url 'elaqe'%}">Əlaqə</a>
+                </Li>
+                <Li>
+                  <a href="{%url 'faq'%}">FAQ</a>
+                </Li>
+              </ul>
+              </div>
+            </div>
+          <button class="menu-toggle" type="button" aria-label="toggle menu"></button>
+          <ul class="socials">
+            <li>
+              <a href="https://facebook.com">Facebook</a>
+            </li>
+            <li>
+              <a href="https://twitter.com">Twitter</a>
+            </li>
+            <li>
+              <a href="https://instagram.com">Instagram</a>
+            </li>
+            <li>
+              <div class="logout">
+                <a href="{% url 'logout' %}" class="logout"><b>Çıxış</b></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    {%else%}
+    <div class="container">
+      <div class="row">
+        <h1>əlaqə</h1>
+      </div>
+      <div class="row">
+        <h4 style="text-align:center">Sizdən şikayət və təkliflərinizi eşitmək istərdik!</h4>
+      </div>
+      <div class="row input-container">
+        <div class="col-xs-12">
+          <div class="styled-input wide">
+            <input id="name-input" type="text" required />
+            <label>Ad</label>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="styled-input">
+            <input id="email-input" type="email" required />
+            <label>Email</label>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="styled-input" style="float:right;">
+            <input id="phone-input" type="text" required />
+            <label>Telefon</label>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="styled-input wide">
+            <textarea id="message-input" required></textarea>
+            <label>Mesaj</label>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <a id="submit-link" href="{% url 'success' %}">
+            <div id="submit-btn" class="btn-lrg submit-btn">Göndər</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  <nav class="top-nav">
+      <div class="fixed-menu">
+        <a href="{%url 'users-home'%}">
+          <img src="{% static 'users/logo.png' %}" style="width:100%; height: 100%;"></img>
+        </a>
+          <div class="icons">
+            <div class="sign">
+              <a href="{% url 'login' %}" class="signin" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Daxil ol</b></a>
+              <a href="{% url 'users-register' %}" class="signup" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Qeydiyyat</b></a>
+            </div>
+          <div class="menu-items">
+            <ul
+              style= "padding-top:20px;
+              margin-top: 10px;
+              justify-content: space-around;";>
+              <Li>
+                <a href="{%url 'ders'%}">Dərslər</a>
+              </Li>
+              <Li>
+                <a href="https://t.me/muellim_bot">Chatbot (telegram)</a>
+              </Li>
+              <!-- <li>
+                <a href="{%url 'kitabxana'%}">Kitabxana</a>
+              </li> -->
+              <li>
+                <a href="{%url 'tasks'%}">Tapşırıqlar</a>
+              </li>
+              <Li>
+                <a href="{%url 'elaqe'%}">Əlaqə</a>
+              </Li>
+              <Li>
+                <a href="{%url 'faq'%}">FAQ</a>
+              </Li>
+            </ul>
+            </div>
+          </div>
+        <button class="menu-toggle" type="button" aria-label="toggle menu"></button>
+        <ul class="socials">
+            <li>
+              <a href="https://facebook.com">Facebook</a>
+            </li>
+            <li>
+              <a href="https://twitter.com">Twitter</a>
+            </li>
+            <li>
+              <a href="https://instagram.com">Instagram</a>
+            </li>
+          </ul>
+      </div>
+    </nav>
+    {% endif %}
+    <script>
+      // Get the required form elements
+      const nameInput = document.getElementById('name-input');
+      const emailInput = document.getElementById('email-input');
+      const phoneInput = document.getElementById('phone-input');
+      const messageInput = document.getElementById('message-input');
+      const submitBtn = document.getElementById('submit-btn');
+      const submitLink = document.getElementById('submit-link');
+    
+      // Function to check if all required fields are filled
+      function checkRequiredFields() {
+        const nameValue = nameInput.value.trim();
+        const emailValue = emailInput.value.trim();
+        const phoneValue = phoneInput.value.trim();
+        const messageValue = messageInput.value.trim();
+    
+        if (nameValue && emailValue && phoneValue && messageValue) {
+          submitBtn.removeAttribute('disabled');
+          submitLink.setAttribute('href', "{% url 'success' %}");
+        } else {
+          submitBtn.setAttribute('disabled', true);
+          submitLink.removeAttribute('href');
+        }
+      }
+    
+      // Attach event listeners to input fields
+      nameInput.addEventListener('input', checkRequiredFields);
+      emailInput.addEventListener('input', checkRequiredFields);
+      phoneInput.addEventListener('input', checkRequiredFields);
+      messageInput.addEventListener('input', checkRequiredFields);
+    </script>
+</body>
+</html>
+
+{% endblock %}

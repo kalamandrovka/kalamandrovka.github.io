@@ -1,0 +1,220 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dərslər</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'users/ders.css' %}">
+</head>
+<body>
+  {%if user.is_authenticated%}
+    <div class="dersler">
+        <ul class = "bir">
+            <li class="kimya">
+              <h1>Kimya</h1><br><br>
+              <!-- <p>Qaydalar</p>
+              <p>Reaksiyalar toplusu</p>
+              <p>Testlər</p>
+              <p>İstisnalar</p> -->
+              <a id="kimya" href="#" class="button">Keçid</a>
+            </li>
+            <li class="aze">
+              <h1>Azərbaycan dili</h1><br><br>
+              <!-- <p>Qaydalar</p>
+              <p>Qrammatika</p>
+              <p>Lüğətlər</p>
+              <p>İstisnalar</p>
+              <p>Testlər</p> -->
+              <a id="aze" href="#" class="button">Keçid</a>
+            </li>
+        </ul>
+        <ul class = "iki">
+            <li class="fizika">
+              <h1>Fizika</h1> <br><br>
+              <!-- <p>Qaydalar</p>
+              <p>Düsturlar</p>
+              <p>Testlər</p>
+              <p>İstisnalar</p> -->
+              <a id="fizika" href="#" class="button">Keçid</a>
+            </li>
+            <li class="riyaz">
+              <h1 style="padding-right: 80px;">
+              Riyaziyyat
+              </h1><br><br>
+              <!-- <p>Qaydalar</p>
+              <p>Qrammatika</p>
+              <p>Lüğətlər</p>
+              <p>İstisnalar</p>
+              <p>Testlər</p> -->
+              <a id="ingilis" href="#" class="button">Keçid</a>
+            </li>
+        </ul>
+        <ul class = "uc">
+            <li class="bio">
+              <h1>Biologiya</h1><br><br>
+              <!-- <p>Qaydalar</p>
+              <p>Testlər</p>
+              <p>İstisnalar</p> -->
+
+              <a id="bio" href="#" class="button">Keçid</a>
+            </li>
+            <li class="ingilis">
+              <h1>Ingilis dili</h1><br><br>
+              <!-- <p>Qaydalar</p>
+              <p>Testlər</p>
+              <p>Düsturlar</p> -->
+              <a href="#" class="button">Keçid</a>
+            </li>
+        </ul>
+    </div>
+    <div class="footer">
+      <h2 style="margin-left:400px; margin-top: 30px; border-radius: 15px; background-color: rgb(255, 255, 255); width: 24.5%; padding:15px;">Hələlik dərslər yüklənməyib.</h2>
+    </div>
+    <nav class="top-nav">
+        <div class="fixed-menu">
+          <a href="{%url 'users-home'%}">
+            <img src="{% static 'users/logo.png' %}" style="width:100%; height: 100%;"></img>
+          </a>
+            <div class="icons">
+            <a href="{% url 'users-home' %}" class="dashboard-icon">
+              <i class="fas fa-chart-bar" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Dashboard</b> </i> 
+            </a>
+            <a href="{% url 'users-profile' %}" class="profile-icon">
+              <i class="fas fa-user" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Profil</b> </i>  
+            </a>
+            <div class="menu-items">
+              <ul
+                style= "padding-top:20px;
+                margin-top: 10px;
+                justify-content: space-around;";>
+                <Li>
+                  <a href="{%url 'ders'%}">Dərslər</a>
+                </Li>
+                <Li>
+                  <a href="https://t.me/muellim_bot">Chatbot (telegram)</a>
+                </Li>
+                <!-- <li>
+                  <a href="{%url 'kitabxana'%}">Kitabxana</a>
+                </li> -->
+                <li>
+                  <a href="{%url 'tasks'%}">Tapşırıqlar</a>
+                </li>
+                <Li>
+                  <a href="{%url 'elaqe'%}">Əlaqə</a>
+                </Li>
+                <Li>
+                  <a href="{%url 'faq'%}">FAQ</a>
+                </Li>
+              </ul>
+              </div>
+            </div>
+          <button class="menu-toggle" type="button" aria-label="toggle menu"></button>
+          <ul class="socials">
+            <li>
+              <a href="https://facebook.com">Facebook</a>
+            </li>
+            <li>
+              <a href="https://twitter.com">Twitter</a>
+            </li>
+            <li>
+              <a href="https://instagram.com">Instagram</a>
+            </li>
+            <li>
+              <div class="logout">
+                <a href="{% url 'logout' %}" class="logout"><b>Çıxış</b></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    {%else%}
+    <div class="dersler">
+      <ul class = "bir">
+          <li class="kimya">
+            <h1>Kimya</h1><br><br>
+            <!-- <p>Qaydalar</p>
+            <p>Reaksiyalar toplusu</p>
+            <p>Testlər</p>
+            <p>İstisnalar</p> -->
+            <a id="kimya" href="{%url 'login'%}" class="button">Keçid</a>
+          </li>
+          <li class="aze">
+            <h1>Azərbaycan dili</h1><br><br>
+            <!-- <p>Qaydalar</p>
+            <p>Qrammatika</p>
+            <p>Lüğətlər</p>
+            <p>İstisnalar</p>
+            <p>Testlər</p> -->
+            <a id="aze" href="{%url 'login'%}" class="button">Keçid</a>
+          </li>
+      </ul>
+      <ul class = "iki">
+          <li class="fizika">
+            <h1>Fizika</h1> <br><br>
+            <!-- <p>Qaydalar</p>
+            <p>Düsturlar</p>
+            <p>Testlər</p>
+            <p>İstisnalar</p> -->
+            <a id="fizika" href="{%url 'login'%}" class="button">Keçid</a>
+          </li>
+          <li class="riyaz">
+            <h1 style="padding-right: 80px;">
+            Riyaziyyat
+            </h1><br><br>
+            <!-- <p>Qaydalar</p>
+            <p>Qrammatika</p>
+            <p>Lüğətlər</p>
+            <p>İstisnalar</p>
+            <p>Testlər</p> -->
+            <a id="ingilis" href="{%url 'login'%}" class="button">Keçid</a>
+          </li>
+      </ul>
+      <ul class = "uc">
+          <li class="bio">
+            <h1>Biologiya</h1><br><br>
+            <!-- <p>Qaydalar</p>
+            <p>Testlər</p>
+            <p>İstisnalar</p> -->
+
+            <a id="bio" href="{%url 'login'%}" class="button">Keçid</a>
+          </li>
+          <li class="ingilis">
+            <h1>Ingilis dili</h1><br><br>
+            <!-- <p>Qaydalar</p>
+            <p>Testlər</p>
+            <p>Düsturlar</p> -->
+            <a href="{%url 'login'%}" class="button">Keçid</a>
+          </li>
+      </ul>
+  </div>
+  <nav class="top-nav">
+      <div class="fixed-menu">
+        <a href="{%url 'users-home'%}">
+          <img src="{% static 'users/logo.png' %}" style="width:100%; height: 100%;"></img>
+        </a>
+          <div class="icons">
+            <div class="sign">
+              <a href="{% url 'login' %}" class="signin" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Daxil ol</b></a>
+              <a href="{% url 'users-register' %}" class="signup" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Qeydiyyat</b></a>
+            </div>
+          </div>
+        <button class="menu-toggle" type="button" aria-label="toggle menu"></button>
+        <ul class="socials">
+          <li>
+            <a href="https://facebook.com">Facebook</a>
+          </li>
+          <li>
+            <a href="https://twitter.com">Twitter</a>
+          </li>
+          <li>
+            <a href="https://instagram.com">Instagram</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+</body>
+</html>
+{% endif %}
+{% endblock %}

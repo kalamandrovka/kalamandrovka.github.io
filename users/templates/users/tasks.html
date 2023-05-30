@@ -1,0 +1,105 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tutor.ai - Exam Preparation Made Easy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/tasks.css' %}">   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Montserrat:wght@500&display=swap"
+        rel="stylesheet">
+    <link 
+      rel="shortcut icon"
+      href="photos/logo.svg"
+      type="image/x-icon"
+    >
+    
+  </head>
+  
+<body>
+    <div class="sag">
+        <div class="tasks">
+            <ul>
+                <li>Task 1 <br>Tarix: Əhəmənilər dövləti. <br> <span class="tick-symbol" onclick="deleteListItem(this)" style="cursor:pointer;">&#x2713;</span></li>
+                <li>Task 2 <br>Riyaziyyat: Test toplusu: Natural ədədlər bölməsindən 1-153-cü çalışmaları yazmaq.<br><span class="tick-symbol" onclick="deleteListItem(this)" style="cursor:pointer;">&#x2713;</span></li>
+                <li>Task 3 <br>Kimya: Avaqadro qanununu oxuyub test toplusundan testlərini işləmək.<br><span class="tick-symbol" onclick="deleteListItem(this)" style="cursor:pointer;">&#x2713;</span></li>
+            </ul>
+        </div>
+    </div>
+    <nav class="top-nav">
+      <div class="fixed-menu">
+        <div class="up">
+          <a href="{%url 'users-home'%}">
+            <img src="{% static 'users/logo.png' %}" style="width:100%; height: 9%;"></img>
+          </a>
+          <div class="icons">
+          <a href="{% url 'users-home' %}" class="dashboard-icon" style="
+          padding-top: 10px;">
+            <i style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Dashboard</b>
+          </a>
+          <a href="{% url 'users-profile' %}" class="profile-icon">
+            <i  style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Profil</b>
+          </a>
+          <div class="menu-items">
+            <ul
+              style= "padding-top:20px;
+              margin-top: 10px;
+              justify-content: space-around;";>
+              <Li>
+                <a href="{%url 'ders'%}">Dərslər</a>
+              </Li>
+              <Li>
+                <a href="https://t.me/muellim_bot">Chatbot (telegram)</a>
+              </Li>
+              <!-- <li>
+                <a href="{%url 'kitabxana'%}">Kitabxana</a>
+              </li> -->
+              <li>
+                <a href="{%url 'tasks'%}">Tapşırıqlar</a>
+              </li>
+              <Li>
+                <a href="{%url 'elaqe'%}">Əlaqə</a>
+              </Li>
+              <Li>
+                <a href="{%url 'faq'%}">FAQ</a>
+              </Li>
+            </ul>
+            </div>
+          </div>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="toggle menu"></button>
+        <ul class="socials">
+          <li>
+            <a href="https://facebook.com" style="font: normal 25px/1.5 'Ubuntu', sans-serif;">Facebook</a>
+          </li>
+          <li>
+            <a href="https://twitter.com" style="font: normal 25px/1.5 'Ubuntu', sans-serif;">Twitter</a>
+          </li>
+          <li>
+            <a href="https://instagram.com" style="font: normal 25px/1.5 'Ubuntu', sans-serif;">Instagram </a>
+          </li>
+          <li>
+            <div class="logout">
+              <a href="{% url 'logout' %}" class="logout" style="font: normal 25px/1.5 'Ubuntu', sans-serif;"><b>Çıxış</b></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+<script>
+    function deleteListItem(item) {
+    var li = item.parentElement;
+    var ul = li.parentElement;
+    ul.removeChild(li);
+    }
+</script>
+    <body>
+</html>
+ {%endblock%}

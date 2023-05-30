@@ -1,0 +1,537 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tutor.ai - Exam Preparation Made Easy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%if user.is_authenticated%}
+    <link rel="stylesheet" type="text/css" href="{% static 'users/style_auth.css' %}">
+    {%else%}
+    <link rel="stylesheet" type="text/css" href="{% static 'users/style_not_auth.css' %}">
+    {%endif%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Montserrat:wght@500&display=swap"
+        rel="stylesheet">
+    <link 
+      rel="shortcut icon"
+      href="photos/logo.svg"
+      type="image/x-icon"
+    >
+    
+  </head>
+  
+<body>
+    {% if user.is_authenticated %}
+    <section class="top-banner">
+      <div class="message">
+        <div class="mesaj1">
+        <h1>Salam, {{user.username}}</h1>
+        <p>Sən artıq bu günlük planının 74%-ni yerinə yetirmisən!</p>
+        <p>Geri qalan hissəni yerinə yetirmək üçün <a href="{%url 'tasks'%}">tapşırıqlar</a> bölməsinə keçid et!</p>
+      </div>
+      <div class="chart-items">
+        <div class = chart>
+        <img src="{% static 'users/graph.png' %}" alt="">
+
+        </div>
+        <div class="chart_text">
+          <p>Narıncı: riyaziyyat</p>
+          <p>Bənövşəyi: kimya</p>
+          <p>Mavi: fizika</p>
+          <p>Göy: tarix</p>
+          
+        </div>
+      </div>
+      <div class="chatbotbox">
+        <div class="chatbot">
+          <h1>Telegram Muallim chatbot (Beta)</h1>
+          <p>Chatbota suallar verməklə mövzuları daha yaxşı qavra!</p>
+          <a href="https://t.me/muellim_bot" class="button">Chatbota keçid (telegram)</a>
+        </div>
+      </div>      
+      <div class="tasks">
+        <div class="tasks1">
+          <h1>Tapşırıqlar</h1>
+          <ol>            
+            <p>1. Tarix: Əhəmənilər dövləti</p>
+          </ol>
+          <ol>
+            <p>2. Riyaziyyat: Natural ədədlər </p>
+          </ol>
+          <ol>
+            <p>3. Fizika: Elektromaqnit induksiya</p>
+          </ol>
+          <ol>
+            <p>4. Kimya: Avaqadro qanunu</p>
+          </ol>
+          <ol>
+            <p>5. Informatika: Python</p>
+          </ol>
+          <a href="{% url 'tasks' %}" class="button">Tapşırıqlara keçid</a>
+        </div>
+      </div>
+      </div>
+      <div class="rest">
+        <div class="started_courses">
+          <h1>Başladığın dərslər:</h1>
+          <ul>
+            <li class="riyazkurs">
+              <h2>Riyaziyyat</h2>
+              <h3>Natural ədədlər</h3>
+              <ul>
+                <li>Natural ədədlər</li>
+                <li>Natural ədədlər üzərində əməllər</li>
+                <li>Qalıqlı bölmə</li>
+                <li>ƏBOB, ƏKOB</li>
+              </ul>
+              <a href="#" class="button more-button">More</a>
+              <a href="kecid" class="button">Keçid</a>
+            </li>
+            <li class="fizikurs">
+              <h2>Fizika</h2>
+              <h3>Elektromaqnit induksiya</h3>
+              <ul>
+                <li>Elektromaqnit induksiya</li>
+                <li>Faradey qanunu</li>
+                <li>Lens qanunu</li>
+                <li>İnduksiya nəticəsində elektrik enerjisinin yaranması</li>
+              </ul>
+              <a href="#" class="button more-button">More</a>
+              <a href="kecid" class="button">Keçid</a>
+            </li>
+            <li class="kimkurs">
+              
+              <h2>Kimya</h2>
+              <h3>Avaqadro qanunu</h3>
+              <ul>
+                <li>Avaqadro qanunu</li>
+                <li>Qazlar</li>
+                <li>Xaç üsulu ilə məsələ həlli</li>
+                <li>Məsələlər</li>
+              </ul>
+              <a href="#" class="button more-button">More</a>
+              <a href="kecid" class="button">Keçid</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="rest1">
+        <div class="finished_courses">
+          <h1>Bitirdiyin dərslər:</h1>
+          <ul>
+            <li>
+              <h2>Kimya</h2>
+              <h3>Reaksiyalar toplusu</h3>
+              <ul>
+                <li>Reaksiyalar toplusu</li>
+                <li>Əsas reaksiyalar</li>
+                <li>Əsas reaksiyaların həlli</li>
+                <li>Əsas reaksiyaların həlli 2</li>
+              </ul>
+              <a href="#" class="button more-button">More</a>
+              <a href="kecid" class="button">Keçid</a>
+            </li>
+            <li>
+              <h2>Coğrafiya</h2>
+              <h3>Dağ süxurları</h3>
+              <ul>
+                <li>Dağ süxurları</li>
+                <li>Dağ süxurlarının xüsusiyyətləri</li>
+                <li>Dağ süxurlarının xüsusiyyətləri 2</li>
+                <li>Dağ süxurlarının xüsusiyyətləri 3</li>
+              </ul>
+              <a href="#" class="button more-button">More</a>
+              <a href="kecid" class="button">Keçid</a>
+            </li>
+            <li>
+              <h2>İngilis dili</h2>
+              <h3>Adverbs</h3>
+              <ul>
+                <li>Adverbs</li>
+                <li>Adverbs of frequency</li>
+                <li>Adverbs of manner</li>
+                <li>Adverbs of place</li>
+              </ul>
+              <a href="#" class="button more-button">More</a>
+              <a href="kecid" class="button">Keçid</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    
+    </section>
+    <nav class="top-nav">
+      <div class="fixed-menu">
+          <a href="{%url 'users-home'%}">
+            <img src="{% static 'users/logo.png' %}" style="width:100%; height: 100%;"></img>
+          </a>
+          <div class="icons">
+          <a href="{% url 'users-home' %}" class="dashboard-icon">
+            <i  style="font: normal 20px/1.5 'Ubuntu', sans-serif;"> <b>Dashboard</b></i> 
+          </a>
+          <a href="{% url 'users-profile' %}" class="profile-icon">
+            <i  style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Profil</b> </i>  
+          </a>
+          <div class="menu-items">
+            <ul
+              style= "padding-top:20px;
+              margin-top: 10px;
+              justify-content: space-around;";>
+              <Li>
+                <a href="{%url 'ders'%}">Dərslər</a>
+              </Li>
+              <Li>
+                <a href="https://t.me/muellim_bot">Chatbot (telegram)</a>
+              </Li>
+              <!-- <li>
+                <a href="{%url 'kitabxana'%}">Kitabxana</a>
+              </li> -->
+              <li>
+                <a href="{%url 'tasks'%}">Tapşırıqlar</a>
+              </li>
+              <Li>
+                <a href="{%url 'elaqe'%}">Əlaqə</a>
+              </Li>
+              <Li>
+                <a href="{%url 'faq'%}">FAQ</a>
+              </Li>
+            </ul>
+            </div>
+          </div>
+        <button class="menu-toggle" type="button" aria-label="toggle menu"></button>
+        <ul class="socials">
+          <li>
+            <a href="https://facebook.com">Facebook</a>
+          </li>
+          <li>
+            <a href="https://twitter.com">Twitter</a>
+          </li>
+          <li>
+            <a href="https://instagram.com">Instagram</a>
+          </li>
+          <li>
+            <div class="logout">
+              <a href="{% url 'logout' %}" class="logout"><b>Çıxış</b></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {% else %}
+    <section class="top-banner">
+      <div class="top-banner-overlay">
+          <div class="overlay1">
+              <h1>Sənin imtahan bələdçin</h1>
+              <p>Bu platform özündə sənin imtahanlarına mümkün ola biləcək ən optimal şəkildə hazırlaşmağını təmin edəcək kontent ehtiva edir.</p>
+          </div>
+      </div>
+      <div class="second-banner-overlay">
+          <h1>Chatbot</h1>
+          <p>Chatbot vasitəsilə sənə imtahanlarda lazım olan bütün məlumatları əldə edəcəksən!</p>
+          <a href="https://t.me/muellim_bot" class="button">Chatbota keçid</a>
+      </div>
+      <div class="third-banner-overlay">
+          <h1>Xüsusi hazırlanmış dərs yolu</h1>
+          <p>İmtahanlara hazırlaşmaq üçün xüsusi hazırlanmış dərs yolu ilə imtahanlara hazırlaşmaq artıq çox asandır!</p>
+          <a href="{% url 'ders'%}" class="button">Dərslərə bax</a>
+      </div> 
+       <div class="pricing-section">
+        <h2>Planınızı seçin</h2>
+        <div class="pricing-cards">
+          <div class="pricing-card">
+            <div class="pricing-card-standard">
+              <h3>Standard</h3>
+              <p class="price">10 AZN</p>
+              <ul>
+                <li>Bütün dərs materialları<hr></li>
+                <li>Süni intellekt dəstəkli proqram<hr></li>
+                <li>Sual bankı<hr></li>
+              </ul>
+              <a href="{%url 'purchase'%}" class="btn">Başla!</a>
+            </div>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-card-donator">
+              <h3>Donator</h3>
+              <p class="price">25 AZN</p>
+              <ul>
+                <li>Premiumdakı hər şey <hr></li>
+                <li>Xeyriyyəçi kimi tanınma<hr></li>
+                <li>Eksklüziv kontent<hr></li>
+                <li>Xüsusi tədbirlər<hr></li>
+                <li>Müəllimlərimizlə əlaqə<hr></li>
+                <li>Hədiyyələr və s.<hr></li>
+              </ul>
+              <a href="{%url 'purchase'%}" class="btn">Başla!</a>
+            </div>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-card-premium">
+              <h3>Premium</h3>
+              <p class="price">15 AZN</p>
+              <ul>
+                <li>Standarddakı hər şey<hr></li>
+                <li>Fərdi imtahan üçün gediş yolu<hr></li>
+                <li>Dərs planlayıcısı<hr></li>
+                <li>İnkişaf göstəricisi<hr></li>
+              </ul>
+              <a href="{%url 'purchase'%}" class="btn">Başla!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 
+
+    <nav class="top-nav">
+      <div class="menu-wrapper">
+        <ul class="menu">
+          <li>
+            <a href="">Ev </a>
+          </li>
+          <li>
+            <a href="">Haqqında</a>
+             <ul class="sub-menu">
+              <li>
+                <a href="">Dərslər</a>
+              </li>
+              <li>
+                <a href="">İmtahan mərkəzi</a>
+              </li>
+            </ul> 
+          </li>
+          <li>
+            <a href="">Topluluq</a>
+          </li>
+          <li>
+            <a href=''>Dərslər</a>
+          </li>
+          <li>
+            <a href="">İmtahan mərkəzi</a>
+          </li>
+          <li>
+            <a href="">Ağıllı robot müəllim (beta)</a>
+          </li>
+          <li>
+            <a href="">Əlaqə</a>
+          </li>
+        </ul>
+      </div>
+      <div class="fixed-menu">
+        <a href="{%url 'users-home'%}">
+          <img src="{% static 'users/logo.png' %}" style="width:100%; height: 100%;"></img>
+        </a>
+       
+        <div class="sign">
+          <a href="{% url 'login' %}" class="signin" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Daxil ol</b></a>
+          <a href="{% url 'users-register' %}" class="signup" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Qeydiyyat</b></a>
+        </div>
+        
+        
+       
+
+         
+
+        <button class="menu-toggle" type="button" aria-label="toggle menu"></button>
+        <ul class="socials">
+          <li>
+            <a href="">Facebook</a>
+          </li>
+          <li>
+            <a href="">Twitter</a>
+          </li>
+          <li>
+            <a href="">Instagram</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {% endif %}
+    <script>
+      // Get all the 'More' buttons
+const moreButtons = document.querySelectorAll('.more-button');
+
+// Attach click event listener to each 'More' button
+moreButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Toggle the 'visible' class on the parent <li> element to show/hide the nested list
+    const listItem = button.parentElement;
+    listItem.querySelector('ul').classList.toggle('visible');
+  });
+});
+    </script>
+</body>
+</html>
+{% endblock %}
+
+<!-- 
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="{% static 'users/script.js' %}"></script>
+    <title>Tutor.ai - Exam Preparation Made Easy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Montserrat:wght@500&display=swap"
+        rel="stylesheet">
+    <link 
+      rel="shortcut icon"
+      href="photos/logo.svg"
+      type="image/x-icon"
+    >
+    
+  </head>
+  
+<body>
+    <section class="top-banner">
+        <div class="top-banner-overlay">
+            <div class="overlay1">
+                <h1>Sənin imtahan bələdçin</h1>
+                <p>Bu platform özündə sənin imtahanlarına mümkün ola biləcək ən optimal şəkildə hazırlaşmağını təmin edəcək kontent ehtiva edir.</p>
+            </div>
+        </div>
+        <div class="second-banner-overlay">
+            <h1>Chatbot</h1>
+            <p>Chatbot vasitəsilə sənə imtahanlarda lazım olan bütün məlumatları əldə edəcəksən!</p>
+            <a href="chatbot.html" class="button">Chatbota keçid</a>
+        </div>
+        <div class="third-banner-overlay">
+            <h1>Xüsusi hazırlanmış dərs yolu</h1>
+            <p>İmtahanlara hazırlaşmaq üçün xüsusi hazırlanmış dərs yolu ilə imtahanlara hazırlaşmaq artıq çox asandır!</p>
+            <a href="ders.html" class="button">Dərslərə bax</a>
+        </div> 
+         <div class="pricing-section">
+          <h2>Planınızı seçin</h2>
+          <div class="pricing-cards">
+            <div class="pricing-card">
+              <div class="pricing-card-standard">
+                <h3>Standard</h3>
+                <p class="price">10 AZN</p>
+                <ul>
+                  <li>Bütün dərs materialları<hr></li>
+                  <li>Süni intellekt dəstəkli proqram<hr></li>
+                  <li>Sual bankı<hr></li>
+                </ul>
+                <a href="#" class="btn">Başla!</a>
+              </div>
+            </div>
+            <div class="pricing-card">
+              <div class="pricing-card-donator">
+                <h3>Donator</h3>
+                <p class="price">25 AZN</p>
+                <ul>
+                  <li>Premiumdakı hər şey <hr></li>
+                  <li>Xeyriyyəçi kimi tanınma<hr></li>
+                  <li>Eksklüziv kontent<hr></li>
+                  <li>Xüsusi tədbirlər<hr></li>
+                  <li>Müəllimlərimizlə əlaqə<hr></li>
+                  <li>Hədiyyələr və s.<hr></li>
+                </ul>
+                <a href="#" class="btn">Başla!</a>
+              </div>
+            </div>
+            <div class="pricing-card">
+              <div class="pricing-card-premium">
+                <h3>Premium</h3>
+                <p class="price">15 AZN</p>
+                <ul>
+                  <li>Standarddakı hər şey<hr></li>
+                  <li>Fərdi imtahan üçün gediş yolu<hr></li>
+                  <li>Dərs planlayıcısı<hr></li>
+                  <li>İnkişaf göstəricisi<hr></li>
+                </ul>
+                <a href="#" class="btn">Başla!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> 
+
+      <nav class="top-nav">
+        <div class="menu-wrapper">
+          <ul class="menu">
+            <li>
+              <a href="">Ev </a>
+            </li>
+            <li>
+              <a href="">Haqqında</a>
+               <ul class="sub-menu">
+                <li>
+                  <a href="">Dərslər</a>
+                </li>
+                <li>
+                  <a href="">İmtahan mərkəzi</a>
+                </li>
+              </ul> 
+            </li>
+            <li>
+              <a href="">Topluluq</a>
+            </li>
+            <li>
+              <a href=''>Dərslər</a>
+            </li>
+            <li>
+              <a href="">İmtahan mərkəzi</a>
+            </li>
+            <li>
+              <a href="">Ağıllı robot müəllim (beta)</a>
+            </li>
+            <li>
+              <a href="">Əlaqə</a>
+            </li>
+          </ul>
+          <button class="menu-close" type="button" aria-label="close menu">✕</button>
+        </div>
+        <div class="fixed-menu">
+          <h2 class="logo">LOGO</h2>
+         
+          <div class="sign">
+            <a href="{% url 'login' %}" class="signin"><b>Daxil ol</b></a>
+            <a href="{% url 'users-register' %}" class="signup"><b>Qeydiyyat</b></a>
+          </div>
+        
+          <div class="logout">
+            <a href="{% url 'logout' %}" class="logout"><b>Çıxış</b></a>
+          </div> 
+          
+
+           <a href="{% url 'users-home' %}" class="dashboard-icon">
+            <i class="fas fa-chart-bar" ></i> Replace with your preferred icon class 
+          </a>
+          <div class="profile-icon">
+            <i class="fas fa-user"></i>  Replace with your preferred icon class
+          </div> 
+
+          <button class="menu-toggle" type="button" aria-label="toggle menu">☰</button>
+          <ul class="socials">
+            <li>
+              <a href="">Facebook</a>
+            </li>
+            <li>
+              <a href="">Twitter</a>
+            </li>
+            <li>
+              <a href="">Instagram</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      
+</body>
+</html>
+-->

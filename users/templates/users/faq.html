@@ -1,0 +1,176 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dərslər</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'users/faq.css' %}">
+</head>
+<body>
+  {%if user.is_authenticated%}
+<div class="faq">
+  <div class="faq-header">Tez-tez soruşulan suallar</div>
+
+<div class="faq-content">
+  <div class="faq-question">
+    <input id="q1" type="checkbox" class="panel">
+    <div class="plus">+</div>
+    <label for="q1" class="panel-title">Saytın məqsədi nədir?</label>
+    <div class="panel-content">Saytın məqsədi DİM imtahanına hazırlaşan tələbələr üçün pathway hazırlayıb onları müvafiq dərs və materiallarla təmin etməkdir ki, şagirdlər qarışıq dərs sistemindən azad olsunlar və onların bahalı müəllimlər üçün bir alternativləri olsun. <br><br> Saytın tam hazır olmuş versiyasının, istifadəçidən aldığı datalar əsasında vaxt bölgüsü edib, gamificated şəkildə tapşırıqların həllini asanlaşdırması nəzərdə tutulub.</div>
+  </div>
+  
+  <div class="faq-question">
+    <input id="q2" type="checkbox" class="panel">
+    <div class="plus">+</div>
+    <label for="q2" class="panel-title">Chatbot nə dərəcədə dəqiq cavablar istehsal edir?</label>
+    <div class="panel-content">Chatbot hazırda ChatGPT API-na bağlıdır. Aldığı inputu əvvəl ingiliscəyə çevirir, ChatGPT-yə göndərir, aldığı cavabı isə yenidən Azərbaycancaya çevirib təqdim edir. İstifadə edərkən Azərbaycan şriftindən istifadə edilməsi tövsiyə edilir.</div>
+  </div>
+  
+  <div class="faq-question">
+    <input id="q3" type="checkbox" class="panel">
+    <div class="plus">+</div>
+    <label for="q3" class="panel-title">2+2=?</label>
+    <div class="panel-content">5 <a href="https://en.wikipedia.org/wiki/The_Unanswered_Question" target="_blank">unanswered</a></div>
+  </div>
+</div>
+</div>
+    <nav class="top-nav">
+        <div class="fixed-menu">
+          <a href="{%url 'users-home'%}">
+            <img src="{% static 'users/logo.png' %}" style="width:100%; height: 100%;"></img>
+          </a>
+            <div class="icons">
+            <a href="{% url 'users-home' %}" class="dashboard-icon">
+              <i class="fas fa-chart-bar" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Dashboard</b> </i> 
+            </a>
+            <a href="{% url 'users-profile' %}" class="profile-icon">
+              <i class="fas fa-user" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Profil</b> </i>  
+            </a>
+            <div class="menu-items">
+              <ul
+                style= "padding-top:20px;
+                margin-top: 10px;
+                justify-content: space-around;";>
+                <Li>
+                  <a href="{%url 'ders'%}">Dərslər</a>
+                </Li>
+                <Li>
+                  <a href="https://t.me/muellim_bot">Chatbot (telegram)</a>
+                </Li>
+                <!-- <li>
+                  <a href="{%url 'kitabxana'%}">Kitabxana</a>
+                </li> -->
+                <li>
+                  <a href="{%url 'tasks'%}">Tapşırıqlar</a>
+                </li>
+                <Li>
+                  <a href="{%url 'elaqe'%}">Əlaqə</a>
+                </Li>
+                <Li>
+                  <a href="{%url 'faq'%}">FAQ</a>
+                </Li>
+              </ul>
+              </div>
+            </div>
+          <button class="menu-toggle" type="button" aria-label="toggle menu"></button>
+          <ul class="socials">
+            <li>
+              <a href="https://facebook.com">Facebook</a>
+            </li>
+            <li>
+              <a href="https://twitter.com">Twitter</a>
+            </li>
+            <li>
+              <a href="https://instagram.com">Instagram</a>
+            </li>
+            <li>
+              <div class="logout">
+                <a href="{% url 'logout' %}" class="logout"><b>Çıxış</b></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    {%else%}
+    <div class="faq">
+        <div class="faq-header">Frequently Asked Questions</div>
+      
+      <div class="faq-content">
+        <div class="faq-question">
+          <input id="q1" type="checkbox" class="panel">
+          <div class="plus">+</div>
+          <label for="q1" class="panel-title">Saytın məqsədi nədir?</label>
+          <div class="panel-content">Saytın məqsədi DİM imtahanına hazırlaşan tələbələr üçün pathway hazırlayıb onları müvafiq dərs və materiallarla təmin etməkdir ki, şagirdlər qarışıq dərs sistemindən azad olsunlar və onların bahalı müəllimlər üçün bir alternativləri olsun. <br><br> Saytın tam hazır olmuş versiyasının, istifadəçidən aldığı datalar əsasında vaxt bölgüsü edib, gamificated şəkildə tapşırıqların həllini asanlaşdırması nəzərdə tutulub.</div>
+        </div>
+        
+        <div class="faq-question">
+          <input id="q2" type="checkbox" class="panel">
+          <div class="plus">+</div>
+          <label for="q2" class="panel-title">Chatbot nə dərəcədə dəqiq cavablar istehsal edir?</label>
+          <div class="panel-content">Chatbot hazırda ChatGPT API-na bağlıdır. Aldığı inputu əvvəl ingiliscəyə çevirir, ChatGPT-yə göndərir, aldığı cavabı isə yenidən Azərbaycancaya çevirib təqdim edir. İstifadə edərkən Azərbaycan şriftindən istifadə edilməsi tövsiyə edilir.</div>
+        </div>
+        
+        <div class="faq-question">
+          <input id="q3" type="checkbox" class="panel">
+          <div class="plus">+</div>
+          <label for="q3" class="panel-title">2+2=?</label>
+          <div class="panel-content">5 <a href="https://en.wikipedia.org/wiki/The_Unanswered_Question" target="_blank">unanswered</a></div>
+        </div>
+      </div>
+      </div>
+  <nav class="top-nav">
+      <div class="fixed-menu">
+        <a href="{%url 'users-home'%}">
+          <img src="{% static 'users/logo.png' %}" style="width:100%; height: 100%;"></img>
+        </a>
+          <div class="icons">
+            <div class="sign">
+              <a href="{% url 'login' %}" class="signin" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Daxil ol</b></a>
+              <a href="{% url 'users-register' %}" class="signup" style="font: normal 20px/1.5 'Ubuntu', sans-serif;"><b>Qeydiyyat</b></a>
+            </div>
+          <div class="menu-items">
+            <ul
+              style= "padding-top:20px;
+              margin-top: 10px;
+              justify-content: space-around;";>
+              <Li>
+                <a href="{%url 'ders'%}">Dərslər</a>
+              </Li>
+              <Li>
+                <a href="https://t.me/muellim_bot">Chatbot (telegram)</a>
+              </Li>
+              <!-- <li>
+                <a href="{%url 'kitabxana'%}">Kitabxana</a>
+              </li> -->
+              <li>
+                <a href="{%url 'tasks'%}">Tapşırıqlar</a>
+              </li>
+              <Li>
+                <a href="{%url 'elaqe'%}">Əlaqə</a>
+              </Li>
+              <Li>
+                <a href="{%url 'faq'%}">FAQ</a>
+              </Li>
+            </ul>
+            </div>
+          </div>
+        <button class="menu-toggle" type="button" aria-label="toggle menu"></button>
+        <ul class="socials">
+            <li>
+              <a href="https://facebook.com">Facebook</a>
+            </li>
+            <li>
+              <a href="https://twitter.com">Twitter</a>
+            </li>
+            <li>
+              <a href="https://instagram.com">Instagram</a>
+            </li>
+          </ul>
+      </div>
+    </nav>
+</body>
+</html>
+{% endif %}
+{% endblock %}
